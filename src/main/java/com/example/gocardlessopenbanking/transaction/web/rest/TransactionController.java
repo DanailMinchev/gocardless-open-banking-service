@@ -26,4 +26,11 @@ public class TransactionController {
         return ResponseEntity.ok(transactionService.findAllBooked(accountId));
     }
 
+    @GetMapping("/booked/export")
+    public ResponseEntity<Void> exportAllBooked(@PathVariable @NotBlank String accountId) {
+        transactionService.exportAllBooked(accountId);
+
+        return ResponseEntity.noContent().build();
+    }
+
 }
