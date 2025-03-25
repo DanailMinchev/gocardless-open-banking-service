@@ -22,7 +22,8 @@ Use `GET /api/v1/institutions/{countryCode}` endpoint.
 
 OR
 
-skip this step and use `SANDBOXFINANCE_SFIN0000` as `institution_id` if you wish to use mock-up institution (see [Sandbox](https://developer.gocardless.com/bank-account-data/sandbox)).
+skip this step and use `SANDBOXFINANCE_SFIN0000` as `institution_id` if you wish to use mock-up institution (
+see [Sandbox](https://developer.gocardless.com/bank-account-data/sandbox)).
 
 ### Step 2.
 
@@ -35,3 +36,9 @@ Use `POST /api/v1/requisition` endpoint.
 List bank accounts.
 
 Use `GET /api/v1/requisition/{requisitionId}` endpoint.
+
+### Step 4.
+
+List transactions by bank account id.
+
+Use `GET /api/v1/transactions/{accountId}/booked` endpoint.

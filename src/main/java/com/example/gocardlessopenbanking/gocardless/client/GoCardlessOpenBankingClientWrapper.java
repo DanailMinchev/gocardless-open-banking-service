@@ -4,6 +4,7 @@ import com.example.gocardlessopenbanking.gocardless.client.dto.CreateRequisition
 import com.example.gocardlessopenbanking.gocardless.client.dto.CreateRequisitionResponse;
 import com.example.gocardlessopenbanking.gocardless.client.dto.GetInstitutionResponse;
 import com.example.gocardlessopenbanking.gocardless.client.dto.GetRequisitionDetailResponse;
+import com.example.gocardlessopenbanking.gocardless.client.dto.GetTransactionsResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.web.client.RestClient;
@@ -50,6 +51,14 @@ class GoCardlessOpenBankingClientWrapper {
                 .uri("/api/v2/requisitions/{requisitionId}/", requisitionId)
                 .retrieve()
                 .body(GetRequisitionDetailResponse.class);
+    }
+
+    public GetTransactionsResponse getTransactions(String accountId) {
+        return apiClient
+                .get()
+                .uri("/api/v2/accounts/{accountId}/transactions/", accountId)
+                .retrieve()
+                .body(GetTransactionsResponse.class);
     }
 
 }
