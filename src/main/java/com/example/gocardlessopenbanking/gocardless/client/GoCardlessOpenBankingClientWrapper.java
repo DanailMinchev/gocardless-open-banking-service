@@ -3,6 +3,7 @@ package com.example.gocardlessopenbanking.gocardless.client;
 import com.example.gocardlessopenbanking.gocardless.client.dto.CreateRequisitionRequest;
 import com.example.gocardlessopenbanking.gocardless.client.dto.CreateRequisitionResponse;
 import com.example.gocardlessopenbanking.gocardless.client.dto.GetInstitutionResponse;
+import com.example.gocardlessopenbanking.gocardless.client.dto.GetRequisitionDetailResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.web.client.RestClient;
@@ -41,6 +42,14 @@ class GoCardlessOpenBankingClientWrapper {
                         .build())
                 .retrieve()
                 .body(CreateRequisitionResponse.class);
+    }
+
+    public GetRequisitionDetailResponse getRequisition(String requisitionId) {
+        return apiClient
+                .get()
+                .uri("/api/v2/requisitions/{requisitionId}/", requisitionId)
+                .retrieve()
+                .body(GetRequisitionDetailResponse.class);
     }
 
 }

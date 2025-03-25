@@ -16,7 +16,7 @@ Swagger UI is available at [http://localhost:8080/swagger-ui/index.html](http://
 
 ### Step 1.
 
-Choose a Bank.
+Choose a bank.
 
 Use `GET /api/v1/institutions/{countryCode}` endpoint.
 
@@ -26,6 +26,12 @@ skip this step and use `SANDBOXFINANCE_SFIN0000` as `institution_id` if you wish
 
 ### Step 2.
 
-Build a Link.
+Build a link.
 
-Use `POST /api/v1/requisition/{institutionId}` endpoint.
+Use `POST /api/v1/requisition` endpoint.
+
+### Step 3.
+
+List bank accounts.
+
+Use `GET /api/v1/requisition/{requisitionId}` endpoint.

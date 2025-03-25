@@ -5,6 +5,7 @@ import com.example.gocardlessopenbanking.gocardless.client.GoCardlessOpenBanking
 import com.example.gocardlessopenbanking.gocardless.service.GoCardlessOpenBankingTokenService;
 import com.example.gocardlessopenbanking.requisition.domain.GoCardlessRequisitionEntity;
 import com.example.gocardlessopenbanking.requisition.model.Requisition;
+import com.example.gocardlessopenbanking.requisition.model.RequisitionDetail;
 import com.example.gocardlessopenbanking.requisition.repository.GoCardlessRequisitionRepository;
 import jakarta.validation.constraints.NotBlank;
 import lombok.extern.slf4j.Slf4j;
@@ -51,6 +52,13 @@ public class RequisitionService {
         log.info("Created requisition entity with id: {}", createdGoCardlessRequisitionEntity.getId());
 
         return requisition;
+    }
+
+    public RequisitionDetail getRequisition(@NotBlank String requisitionId) {
+        GoCardlessOpenBankingClientFacade clientFacade =
+                goCardlessOpenBankingClientFactory.getClientFor(goCardlessOpenBankingTokenService.getAccessToken());
+
+        return clientFacade.getRequisition(requisitionId);
     }
 
     private GoCardlessRequisitionEntity createGoCardlessRequisitionEntity(UUID reference,

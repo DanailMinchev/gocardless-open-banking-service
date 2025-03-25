@@ -2,8 +2,10 @@ package com.example.gocardlessopenbanking.gocardless.client;
 
 import com.example.gocardlessopenbanking.gocardless.client.dto.CreateRequisitionResponse;
 import com.example.gocardlessopenbanking.gocardless.client.dto.GetInstitutionResponse;
+import com.example.gocardlessopenbanking.gocardless.client.dto.GetRequisitionDetailResponse;
 import com.example.gocardlessopenbanking.institution.model.Institution;
 import com.example.gocardlessopenbanking.requisition.model.Requisition;
+import com.example.gocardlessopenbanking.requisition.model.RequisitionDetail;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
@@ -39,6 +41,15 @@ public class GoCardlessOpenBankingClientFacade {
                 .requisitionId(createRequisitionResponse.getId())
                 .requisitionStatus(createRequisitionResponse.getStatus())
                 .requisitionLink(createRequisitionResponse.getLink())
+                .build();
+    }
+
+    public RequisitionDetail getRequisition(String requisitionId) {
+        GetRequisitionDetailResponse getRequisitionDetailResponse = goCardlessOpenBankingClientWrapper.getRequisition(requisitionId);
+
+        return RequisitionDetail.builder()
+                .id(getRequisitionDetailResponse.getId())
+                .accountIds(getRequisitionDetailResponse.getAccountIds())
                 .build();
     }
 
