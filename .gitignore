@@ -39,4 +39,5 @@ out/
 ### App ###
 .env*
 !.env.example
+docker/data/*
 
