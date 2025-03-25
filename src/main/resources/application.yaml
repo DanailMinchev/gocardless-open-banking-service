@@ -25,3 +25,4 @@ app:
     api-url: ${GOCARDLESS_API_URL:https://bankaccountdata.gocardless.com}
     secret-id: ${GOCARDLESS_SECRET_ID}
     secret-key: ${GOCARDLESS_SECRET_KEY}
+    redirect-url: ${GOCARDLESS_REDIRECT_URL:http://localhost:8080/redirect}

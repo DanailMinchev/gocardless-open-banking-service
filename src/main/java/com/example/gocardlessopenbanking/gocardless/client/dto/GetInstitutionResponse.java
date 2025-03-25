@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @Builder(toBuilder = true)
-public class InstitutionResponse {
+public class GetInstitutionResponse {
 
     @NotBlank
     private String id;
