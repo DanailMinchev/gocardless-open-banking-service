@@ -74,6 +74,8 @@ public class GoCardlessOpenBankingClientFacade {
                                 .currency(transaction.getTransactionAmount().getCurrency())
                                 .build()
                         )
+                        .creditorName(transaction.getCreditorName())
+                        .debtorName(transaction.getDebtorName())
                         .build())
                 .toList();
     }
